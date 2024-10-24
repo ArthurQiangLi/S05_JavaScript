@@ -70,7 +70,7 @@ languages.push("Python");` also the .push() method returns num of elements in th
 5. To add an element to the beginning of the array rather than the end : `languages.unshift("Erlang");`
 6. To mutate an array by removing its last element: `languages.pop();` The method returns the value of the element being removed.
 7. To remove the first element from an array, rather than the last: `let worstLanguage = languages.shift();`, Like pop, the shift method returns the removed element.
-   ![alt text](./MarkdownResouces/image.png)
+   ![alt text](./MarkdownResouces/push,pop,ushshift,shift%20to%20graphic.png)
 8. Combining arrays: `let fish = ["Salmon", "Cod", "Trout"];
 let mammals = ["Sheep", "Cat", "Tiger"];
 let animals = fish.concat(mammals); let animals2  fish.concat(mamals, mamals)`
@@ -138,9 +138,86 @@ trilogies[1].books[0];  -->> 'The Fifth Season'
 
 ## 4-Conditionals and Loops
 
-If Statements
-While Loops
-For Loops
+> The control structs
+
+### If Statements
+
+```js
+<html><body><script>
+let speed = 20;
+console.log(`Your current speed is ${speed} mph.`);
+if (speed > 25) {
+❶ console.log("Slow down!");
+} else {
+❷ console.log("You're obeying the speed limit.");
+}
+</script></body></html>
+
+
+//Write the boolean expression separately
+let tooFastForSchool = speed > 25 && hour > 7 && hour < 16;
+if (tooFastForSchool) {...}
+```
+
+### While Loops
+
+### For Loops
+
+> 4 kinds of loops: while loops, for loops, for…in loops, and for…of loops. Let’s start with while loops.
+
+```html
+<html>
+  <body>
+    <script>
+      for (let speed = 30; speed > 25; speed--) {
+        console.log(`Your current speed is ${speed} mph.`);
+      }
+    </script>
+  </body>
+</html>
+```
+
+A `for…of` loop cycles through the items in an array, strings are arrays, too.
+
+```html
+<html>
+  <body>
+    <script>
+      let colors = ["Red", "Green", "Blue"];
+
+      for (let color of colors) {
+        console.log(`${color} is a color.`);
+      }
+
+      for (let [index, item] of colors.entries()) {
+        //with entries to access the indices in an array.
+        console.log(`${index}: ${item} is a color.`);
+      }
+    </script>
+  </body>
+</html>
+```
+
+A `for…in` loop cycles through the keys in an object.
+
+```html
+<html>
+  <body>
+    <script>
+      let me = {
+        "first name": "Nick",
+        "last name": "Morgan",
+        age: 39,
+      };
+
+      for (let key in me) {
+        console.log(`My ${key} is ${me[key]}.`);
+      }
+      //You could achieve the same result using Object.entries(me) to get an array of pairs of keys and values
+    </script>
+  </body>
+</html>
+```
 
 ## 5-Functions
 
