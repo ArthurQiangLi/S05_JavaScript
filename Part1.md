@@ -42,3 +42,13 @@
    2. `false || true ` is true
    3. `5===5` is true, `"hello" === "goodbye"`is false. the === or “triple equals” operator checks if two values are equal.
    4. `8!==8` is false. This operator checks if two values are not equal.
+1. Type Coercion:
+   1. `"Current score: " + 10; -->> "Current score: 10" `
+   2. `100 + true;  -->> 101`
+   3. double equals (==), that applies coercion to its operands before checking for equality. `"1" == 1;-> true `, `
+undefined == null; ->true`, `
+undefined == false; ->false`,`"" == 0; ->true`,`
+"" == false; ->true`
+   4. `0 !== false; ->true`; ` 0 != false;->false` Without coercion, 0 is not equal to false, so 0 !== false is true. With coercion, however, false becomes 0, so 0 != false is false.
+   5. Use of Truthiness: `let name;
+name = name || "No name provided";`, used to give a variable a default value if one isn't provided.
