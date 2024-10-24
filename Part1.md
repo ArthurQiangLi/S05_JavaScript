@@ -52,3 +52,39 @@ undefined == false; ->false`,`"" == 0; ->true`,`
    4. `0 !== false; ->true`; ` 0 != false;->false` Without coercion, 0 is not equal to false, so 0 !== false is true. With coercion, however, false becomes 0, so 0 != false is false.
    5. Use of Truthiness: `let name;
 name = name || "No name provided";`, used to give a variable a default value if one isn't provided.
+
+## 3-Compound Data Types
+
+### 1. Arrays:
+
+### 2. Objects:
+
+## 4-Conditionals and Loops
+
+If Statements
+While Loops
+For Loops
+
+## 5-Functions
+
+Declaring and Calling Functions
+Return Values
+Paramenter Types
+Side Effects
+Passing a Function as an Argument
+Function Expressions
+Arrow Functions
+Rest Parameters
+Array Methods That takes Callbacks
+Custom Functions That Take Callbacks
+Functions That Return Functions
+
+## 6-Classes
+
+Creating Classes and Instances
+Inheritance
+Prototype-Based Inheritance
+Using Constructors and Prototypes
+Comparing Constructors and Classes
+Walking the Prototype Chain
+Overriding a Method
