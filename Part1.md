@@ -422,10 +422,101 @@ winking("Hello");
 
 ## 6-Classes
 
-Creating Classes and Instances
-Inheritance
-Prototype-Based Inheritance
-Using Constructors and Prototypes
-Comparing Constructors and Classes
-Walking the Prototype Chain
-Overriding a Method
+> Functions vs Methods: methods are always associated with an object, whereas a function stands alone.
+> 'myArray.push(2)', here 'myArray' is called "receiver", because it receives the method call.
+
+### Creating Classes and Instances
+
+```js
+class Player {
+❶ constructor(startX, startY) {  //constructor() is called automatically anytime you create an instance of the class
+    this.x = startX; //'this' is set to the current object(the receiver)
+    this.y = startY;
+  }
+
+❷ move(dx, dy) { //don't use 'function' keyword
+    this.x += dx;
+    this.y += dy;
+  }
+}
+
+let player1 = new Player(0, 0); //here 'this' is 'player1'
+
+```
+
+### Inheritance
+
+```js
+class Player extends Actor {
+   //Inside a subclass’s constructor method, the super keyword refers to the constructor from the superclass
+  constructor(startX, startY) {
+    super(startX, startY);
+  ❶ this.hp = 100;
+  }
+}
+
+//
+let player = new Player(1, 2);
+let enemy = new Enemy(3, 4);
+player.hp;
+100
+enemy.distanceTo(player);
+2.8284271247461903
+enemy.attack(player);
+true
+player.hp;
+90
+player.move(5, 5);
+enemy.attack(player);
+false
+player.hp;
+90
+```
+
+> When a subclass doesn’t define a constructor, its parent class’s constructor is called automatically when a new instance of the subclass is created
+
+### Prototype-Based Inheritance
+
+### Using Constructors and Prototypes
+
+```js
+function Cat(name) {
+  this.name = name;
+}
+Cat.prototype.sayHello = function () {
+  console.log(`Miaow! My name is ${this.name}.`);
+};
+
+let kiki = new Cat("Kiki");
+kiki.sayHello();
+Miaow! My name is Kiki.
+undefined
+
+kiki.__proto__; //to access an object's prototype property directly in code
+{sayHello: f, constructor: f}
+```
+
+### Comparing Constructors and Classes
+
+### Walking the Prototype Chain
+
+![Alt text](./MarkdownResouces/figure6.1%20the%20prototype%20chain%20for%20kiki.png)
+
+> all constructor functions have a prototype field.
+
+<b>
+
+> Understanding how JavaScript walks the prototype chain to locate an object’s methods is important because it allows us to override the definition of a method that an object would otherwise inherit from its prototype.
+
+### Overriding a Method
+
+```js
+let moona = new Cat("Moona");
+moona.sayHello = function () {
+  console.log(`HELLO!!! I'M ${this.name.toUpperCase()}!`);
+};
+moona.sayHello();
+❶ HELLO!!! I'M MOONA!
+kiki.sayHello();
+❷ Miaow! My name is Kiki.
+```
