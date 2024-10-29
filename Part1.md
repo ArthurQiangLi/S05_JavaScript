@@ -177,7 +177,7 @@ if (tooFastForSchool) {...}
 </html>
 ```
 
-A `for…of` loop cycles through the items in an array, strings are arrays, too.
+A `for…of` loop cycles through the items in an **array**, strings are arrays, too.
 
 ```html
 <html>
@@ -198,7 +198,7 @@ A `for…of` loop cycles through the items in an array, strings are arrays, too.
 </html>
 ```
 
-A `for…in` loop cycles through the keys in an object.
+A `for…in` loop cycles through the keys in an **object**.
 
 ```html
 <html>
@@ -221,17 +221,204 @@ A `for…in` loop cycles through the keys in an object.
 
 ## 5-Functions
 
-Declaring and Calling Functions
-Return Values
-Paramenter Types
-Side Effects
-Passing a Function as an Argument
-Function Expressions
-Arrow Functions
-Rest Parameters
-Array Methods That takes Callbacks
-Custom Functions That Take Callbacks
-Functions That Return Functions
+### Declaring and Calling Functions
+
+```js
+//Declaring functions:
+function sayHello(name) {
+  console.log(`Hello, ${name}!`);
+  return 0;
+}
+//Calling functions:
+sayHello("Nick");
+
+//Calling from within the template literal:
+`I walked ${add(500, 500)} miles`;
+("I walked 1000 miles");
+```
+
+> JavaScript is a **dynamically typed** programming language, in which the types of a variables can change while the program is running.
+
+```js
+add("Hello, ", "world!");
+("Hello, world!");
+add(true, false);
+1;
+add(1, "1");
+("11");
+```
+
+> In JavaScript, functions are first-class citizens, which means they **can be used like any other value**, such as a number or a string. For example, you can store a function in a variable or pass a function as an argument to another function.
+
+#### Passing a Function as an Argument
+
+> When a function is passed as an argument, it's often refferred as a callback, because the fucntion it's passed to is said to 'call it back' by executing it.
+
+```js
+function sayHi() {
+  console.log("Hi!");
+}
+setTimeout(sayHi, 2000);
+1 //this is timeout ID
+Hi!
+```
+
+### Function Expressions
+
+> is an expression that evaluates to (returens) a function.
+
+```js
+//[1]a function expression can’t be written at the start of a line of code
+let addExpression = function (x, y) {
+  //[2], a function expression doesn’t have to include a name, it's called a anonymous function
+  return x + y;
+}; //a semicolon after the closing brace is needed
+
+addExpression(1, 2); //the funcion is bound to the addExpression variable now
+3;
+```
+
+> Function expression and function declarations are interchangeable, choosing between the two approaches is a matter of style.
+
+### Arrow Functions
+
+> a.k.a Arrow Function Expression.
+
+```js
+let addArrow = (x, y) => {
+  return x + y;
+};
+
+addArrow(2, 2);
+4;
+
+let addArrowConcise = (x, y) => x + y; //concise body: if the body consists of just a single statement.
+
+let squared = (x) => x * x;
+squared(3);
+9;
+
+setInterval(() => {
+  //arrow function takes no arguments, so it begins with an empty set of parentheses
+  console.log("Beep");
+}, 1000);
+3;
+Beep;
+```
+
+### Rest Parameters
+
+> Sometimes you want your function to accept a variable number of arguments.
+
+```js
+let myColors = (name, …favoriteColors) => {  //A rest parameter looks like an ordinary parameter preceded by three periods, and it always has to be the last parameter listed in the function definition. The rest parameter bundles the '...favoriteColors' into an arry.
+  let colorString = favoriteColors.join(", ");
+  console.log(`My name is ${name} and my favorite colors are ${colorString}.`);
+};
+myColors("Nick", "blue", "green", "orange");
+My name is Nick and my favorite colors are blue, green, orange.
+
+//another example
+function sum(…numbers) {
+  let total = 0;
+  for (let number of numbers) {
+    total += number;
+  }
+  return total;
+}
+sum(1, 2, 3, 4, 5);
+15
+sum(6, 7, 8, 9, 10, 11, 12, 13);
+76
+```
+
+### Higher-Order Functions
+
+> A higher-order function is a function that takes another function as an argument, or that outputs another function as its return value.
+
+#### 1.Array Methods That takes Callbacks
+
+```js
+//[1]Finding an Array Element
+let shoppingList = ["Milk", "Sugar", "Bananas", "Ice Cream"];
+shoppingList.find((item) => item.length > 6); //pass a callback to find()
+("Bananas");
+shoppingList.find((item) => item[0] === "A");
+undefined; //if no item is found, returns undefined.
+```
+
+```js
+//[2]Filtering the elements of an Array
+let shoppingList = ["Milk", "Sugar", "Bananas", "Ice Cream"];
+shoppingList.filter(item => item.length > 6);
+(2) ['Bananas', 'Ice Cream']
+```
+
+```js
+//[3]Transforming Each Element of an Array
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let cubes = numbers.map(x => x * x * x); //this callback function to map(), takes an array element and cubes it.
+cubes;
+(10) [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+
+//Equals to:
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let cubes = [];
+for (let x of numbers) {
+  cubes.push(x * x * x);
+}
+cubes;
+(10) [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+//***
+let stockList = [
+  {name: "Cheese", price: 3},
+  {name: "Bread", price: 1},
+  {name: "Butter", price: 2}
+];
+let prices = stockList.map(item => item.price); //for each item in an array, just get the prices and form a new array with all the prices.
+prices;
+(3) [3, 1, 2]
+```
+
+### Custom Functions That Take Callbacks
+
+```js
+function doubler(callback) {
+  callback();
+  callback();
+}
+doubler(() => console.log("Hi there!"));
+Hi there!
+Hi there!
+
+//another example
+function callMultipleTimes(times, callback) {
+  for (let i = 0; i < times; i++) {
+    callback(i);
+  }
+}
+callMultipleTimes(3, time => console.log(`This was time: ${time}`));  //here 'time => console...' is a arrow funciton with single 'time' parameter. In case you're confused of: why not '(3, time) ==> ...'?
+This was time: 0
+This was time: 1
+This was time: 2
+```
+
+### Functions That Return Functions
+
+```js
+function makeAppender(suffix) {
+❶ return function (text) {
+  ❷ return text + suffix;
+  };
+}
+
+let puzzling = makeAppender("???");
+puzzling("Hello");
+'Hello???'
+let winking = makeAppender(" ;-)");
+winking("Hello");
+'Hello ;-)'
+```
 
 ## 6-Classes
 
