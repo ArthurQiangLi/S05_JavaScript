@@ -1,0 +1,37 @@
+<mxfile host="65bd71144e">
+    <diagram id="dBZ8XcBB9GximnCqBzep" name="Page-1">
+        <mxGraphModel dx="460" dy="461" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="120" y="70" width="170" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Expressions ','&amp;nbsp;&lt;br&gt;Statements end with ';'" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="9">
+                    <mxGeometry y="30" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Basic" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="9">
+                    <mxGeometry width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="310" y="70" width="170" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Arrays&lt;br&gt;Objects {&quot;key&quot;: value}" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="10">
+                    <mxGeometry y="30" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Compound Data Types" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="10">
+                    <mxGeometry width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="If , While, For" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Functions:&lt;br&gt;Declaring, Calling&lt;br&gt;Function as an Argument&lt;br&gt;Function Expression&lt;br&gt;Arrow Functions&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="185" width="170" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Class" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="190" width="190" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

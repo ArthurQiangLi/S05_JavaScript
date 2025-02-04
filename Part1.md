@@ -1,3 +1,8 @@
+# Part1 Basic JavaScript Knowledge
+
+What are in this notebook?
+![Alt text](<./MarkdownResouces/Screenshot from 2025-02-03 16-04-55.png>)
+
 ## 1-Getting Started
 
 1. Strl+shift+J : open Chrome javascript console.
@@ -16,8 +21,8 @@
 
 ## 2-The Basic
 
-1. Expressions, have values, but don't let computer do anything
-1. statements, tells computer to perform tasks, but don't have values
+1. **Expressions**, have values, but don't let computer do anything
+1. **Statements**, tells computer to perform tasks, but don't have values
 1. JavaScript statements end with a semicolon.
 1. Compound expression,
 1. literal,
@@ -305,6 +310,10 @@ setInterval(() => {
 3;
 Beep;
 ```
+
+> My understanding: arrow fucntions are a concise way to write a function only called once.
+> Write as `const onetime_name = (arguments)=> body_code` and call it as `onetime_name();`.
+> Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions and https://www.freecodecamp.org/news/javascript-arrow-functions-in-depth/
 
 ### Rest Parameters
 
